@@ -1,13 +1,20 @@
-import random, simplegui
-
-lst = range(1,9)*2
-random.shuffle(lst)
-print lst
-       
-def draw(canvas):
-    for n in range(len(lst)):
-        canvas.draw_text(str(lst[n]), [50*n, 75], 55, "Blue") 
-f = simplegui.create_frame("Mem", 800, 100)
-f.set_draw_handler(draw)
-
-f.start()
+import simplegui, random
+def newgame(cards):
+    lst = range(1,int(cards)+1)*2
+    random.shuffle(lst)
+    return lst
+def texthandler(text):
+    pass
+def new():
+    #try:
+    cards = newgame(inp.get_text())
+    print cards
+    #except:
+        #print "Please input a number"
+print
+def drawhandler(canvas):
+    cards = newgame(texthandler)
+#    for card in cards
+frame = simplegui.create_frame("Memory", 500, 200)
+inp = frame.add_input("# of cards", texthandler, 50)
+frame.add_button("New Game", new)
