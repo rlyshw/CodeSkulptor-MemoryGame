@@ -1,0 +1,13 @@
+import random, simplegui
+
+lst = range(1,9)*2
+random.shuffle(lst)
+print lst
+       
+def draw(canvas):
+    for n in lst:
+        canvas.draw_text(str(lst[n]), [50*n, 75], 55, "Blue") 
+f = simplegui.create_frame("Mem", 800, 100)
+f.set_draw_handler(draw)
+
+f.start()
