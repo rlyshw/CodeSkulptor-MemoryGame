@@ -24,14 +24,17 @@ def new():
         cards = []
         print "Please input a number"
     print cards
-    
+    print len(cards)
 def drawhandler(canvas):
     global cards
     if len(cards)<=16:
         for n in range(len(cards)):
-            canvas.draw_text(str(cards[n]), [50*n+10, 75], 55, "Blue")
-    else:
-        for n in range(len(cards[0:len(cards)/2]))
+            canvas.draw_text(str(cards[n]), [50*n+10, 50], 35, "Blue")
+    elif len(cards)>16:
+        for n in range(len(cards[0:15])):
+            canvas.draw_text(str(cards[n]), [50*n+10, 50], 35, "Blue")
+        for n in range(len(cards[16:31])):
+            canvas.draw_text(str(cards[n+16]), [50*n+10, 100], 35, "Blue")
 frame = simplegui.create_frame("Memory", 800, 200)
 inp = frame.add_input("# of pairs", texthandler, 50)
 frame.add_button("New Game", new)
