@@ -1,11 +1,17 @@
 import simplegui, random
 
 cards = []
-
+cstate = []
 def newgame(num):
+    global cstate
     lst = range(1,int(num)+1)*2
     random.shuffle(lst)
+    for n in range(len(lst)):
+        cstate.append([[n%(len(lst)/2)], False])
+        print cstate[n]
+    print cstate
     return lst
+
 
 def texthandler(text):
     global cards
@@ -25,6 +31,7 @@ def new():
         print "Please input a number"
     print cards
     print len(cards)
+    
 def drawhandler(canvas):
     global cards
     if len(cards)<=16:
